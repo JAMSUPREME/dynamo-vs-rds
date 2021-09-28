@@ -1,0 +1,13 @@
+# Global ignores
+**/*.log
+.vscode
+
+# TF ignores
+**/.terraform
+**/secrets.auto.tfvars
+
+# JS ignores
+**/node_modules
+
+# Ignore code coverage dir
+**/coverage

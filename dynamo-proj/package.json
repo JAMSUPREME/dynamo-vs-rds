@@ -1,0 +1,57 @@
+{
+  "name": "dynamo-proj",
+  "//": {
+    "//": "Cannot use type module since that breaks when consuming CJS packages like AWS SDK",
+    "type": "module"
+  },
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Messing with dynamo",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage --watchAll=false",
+    "lint": "eslint --fix --ext .js .",
+    "lint:no-fix": "eslint --ext .js ."
+  },
+  "jest": {
+    "transform": {
+      "\\.[jt]sx?$": "esm"
+    },
+    "collectCoverageFrom": [
+      "**/*.{js,jsx,ts,tsx}",
+      "!**/node_modules/**",
+      "!**/coverage/**",
+      "!**/.eslintrc.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 75,
+        "lines": 75,
+        "statements": 75
+      }
+    },
+    "testMatch": [
+      "**/__tests__/**/?(*.)+(spec|test).[jt]s?(x)",
+      "**/?(*.)+(spec|test).[jt]s?(x)"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.34.0",
+    "esm": "^3.2.25"
+  },
+  "devDependencies": {
+    "aws-sdk-client-mock": "^0.5.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.6.3",
+    "jest-expect-message": "^1.0.2",
+    "jest-matcher-utils": "^27.0.6"
+  }
+}
