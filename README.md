@@ -1,3 +1,3 @@
+# dynamo-vs-rds
 
-
-Messing with dynamo. Comparing with RDBMS
+Trying out some dynamo things
