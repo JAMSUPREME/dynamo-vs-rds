@@ -1,7 +1,7 @@
 // Do something at some point
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 
-exports.handler = async function handler(event, context) {
+const handler = async function handler(event, context) {
   // I think the client values should get auto-filled?
   const client = new DynamoDBClient({});
   
@@ -21,3 +21,5 @@ exports.handler = async function handler(event, context) {
     })
   };
 };
+
+export { handler };

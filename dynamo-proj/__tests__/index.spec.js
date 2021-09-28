@@ -1,14 +1,14 @@
-import { index } from '../index';
+import {handler} from '../index';
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { mockClient } from 'aws-sdk-client-mock';
 
 describe('When verifying the stuff', () => {
 
 
   beforeAll(() => {
-    const ddbMock = mockClient(DynamoDBDocumentClient);
-    ddbMock.on(QueryCommand).resolves({
-      Items: [{ pk: 'a', sk: 'b' }],
-    });
+    const ddbMock = mockClient(DynamoDBClient);
+    // ddbMock.on(PutItemCommand).resolves({});
+    ddbMock.onAnyCommand().resolves({});
   });
 
   test('It should work', async () => {
@@ -18,6 +18,6 @@ describe('When verifying the stuff', () => {
       path: '/dynamo-stuff'
     };
 
-    await index.handler(mockEvent, {});
+    await handler(mockEvent, {});
   });
 });
